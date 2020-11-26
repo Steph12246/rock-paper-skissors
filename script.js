@@ -10,14 +10,16 @@ scissorsButton.addEventListener('click', Game);
 function Game (){
   var playerSelection = this.dataset.button.toLowerCase();
 
-  const userScore = document.querySelector('.user-score');
-  const computerScore = document.querySelector('.computer-score');
+  var userScore = document.querySelector('.user-score');
+  var computerScore = document.querySelector('.computer-score');
+
 var resultsArray = [];
 
   //this is computerPlay.
   let selections = ['rock', 'paper', 'scissors']
   let computerPlay = selections[Math.floor(Math.random()*selections.length)];
   var computerSelection = computerPlay;
+
 playRound();
 
   function playRound()
@@ -34,18 +36,21 @@ console.log(playerSelection);
 console.log(computerSelection);
 console.log(resultsArray);
 
+
 roundScore();
 function roundScore(){
-  while (humanScore < 5 && competitorScore < 5){
+  while (userScore < 5 && computerScore < 5){
     if (resultsArray == 'you got it'|| resultsArray == 'you win' || resultsArray == 'you won')
     {
-      humanScore++;
-      userScore.textContent = `${humanScore}`;
+      userScore++;
+      userScore.textContent = `${userScore}`;
     }
     else if (resultsArray == 'oh you LOSEEEEE!'){
-      competitorScore ++;
-      computerScore.textContent = `${competitorScore}`;
+      computerScore ++;
+      computerScore.textContent = `${computerScore}`;
     }
+    console.log(userScore);
+    console.log(computerScore);
     }
   }
 };
