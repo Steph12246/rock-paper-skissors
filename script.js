@@ -6,36 +6,46 @@ rockButton.addEventListener('click', Game);
 paperButton.addEventListener('click', Game);
 scissorsButton.addEventListener('click', Game);
 
+
 function Game (){
-  var selectMove = this.dataset.button;
-  var playerSelection = selectMove.toLowerCase();
+  var playerSelection = this.dataset.button.toLowerCase();
+
+  const userScore = document.querySelector('.user-score');
+  const computerScore = document.querySelector('.computer-score');
+var resultsArray = [];
 
   //this is computerPlay.
   let selections = ['rock', 'paper', 'scissors']
   let computerPlay = selections[Math.floor(Math.random()*selections.length)];
   var computerSelection = computerPlay;
+playRound();
 
-  function playRound(playerSelection, computerSelection)
+  function playRound()
 {
   if (playerSelection == 'rock' && computerSelection == 'scissors') resultsArray.push ("you got it");
-  else if (playerSelection == 'scissors' && computerSelection == 'paper') resultsArray.push ("you got it");
-  else if (playerSelection == 'paper' && computerSelection == 'rock') resultsArray.push ("you got it");
+  else if (playerSelection == 'scissors' && computerSelection == 'paper') resultsArray.push ("you win");
+  else if (playerSelection == 'paper' && computerSelection == 'rock') resultsArray.push ("you won");
   else if (playerSelection == computerSelection) resultsArray.push ('draw');
   else resultsArray.push ('oh you LOSEEEEE!'); /*Shortens function, also appears with an error */
 }
 
-  var resultsArray = [];
+
 console.log(playerSelection);
 console.log(computerSelection);
 console.log(resultsArray);
 
+roundScore();
+function roundScore(){
+  while (humanScore < 5 && competitorScore < 5){
+    if (resultsArray == 'you got it'|| resultsArray == 'you win' || resultsArray == 'you won')
+    {
+      humanScore++;
+      userScore.textContent = `${humanScore}`;
+    }
+    else if (resultsArray == 'oh you LOSEEEEE!'){
+      competitorScore ++;
+      computerScore.textContent = `${competitorScore}`;
+    }
+    }
+  }
 };
-//function gameLog() {
-  //      var li = document.createElement('li');
-    //    li.textContent = resultsArray[`${resultsArray.length -1}`];
-    //  }
-
-//if (resultsArray == 'you got it'|| resultsArray == 'you win' || resultsArray == 'you won')
-//humanScore ++ ;
-//else if (resultsArray == 'oh you LOSEEEEE!')
-//computerScore ++;
