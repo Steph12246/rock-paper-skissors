@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-
+<link rel="stylesheet" href="rock-paper-scissors.css">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,30 +8,24 @@
   <title>Rock Paper Scissors</title>
 </head>
 <body>
-  <script>
-function game (){
-  function playRound(playerSelection, computerSelection)
-{
-if (playerSelection == 'rock' && computerSelection == 'scissors') alert ('you got it');
-else if (playerSelection == 'scissors' && computerSelection == 'paper') alert ('you win');
-else if (playerSelection == 'paper' && computerSelection == 'rock') alert ('you won');
-else if (playerSelection == computerSelection) alert ('draw');
-else alert ('oh you LOSEEEEE!'); /*Shortens function, also appears with an error */
-}
-
-let selections = ['rock', 'paper', 'scissors']
-let computerPlay = selections[Math.floor(Math.random()*selections.length)];
-
-
-let selectMove = prompt ("enter move");
-const playerSelection = selectMove.toLowerCase();
-const computerSelection = computerPlay;
-console.log(computerSelection);
-console.log(playRound(playerSelection, computerSelection));
-}
-for (var i = 0; i < 5; i++) {
-  game();
-}
-  </script>
+<header> ROCK, PAPER, SCISSORS </header>
+<div id="mainBody">
+  <div id="container">
+<span id="rock" class="selection"> <img src="rock.png" /></span>
+<span id="paper" class="selection"><img src="paper.png" /></span>
+<span id="scissors" class="selection"><img src="scissors.png" /></span>
+  </div>
+</div>
+<div id="foot">
+  <div id="start">Start New Game</div>
+  <div id="result">
+    <p> Make your move!</p>
+    </div>
+  <div id="score">
+    <span id="hScore" class="score">Your score</span>:<span id="humanScore">0</span>
+    <span id="cScore" class="score">Computer score</span>:<span id="computerScore">0</span>
+  </div>
+</div>
+<script src="script.js"> </script>
   </body>
 </html>

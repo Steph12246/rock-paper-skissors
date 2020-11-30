@@ -16,11 +16,7 @@ function getComputerSelection (){
   const computerPlay = selections[Math.floor(Math.random()*selections.length)];
   return computerPlay;
 }
-// querySelector to icons
-// queryselector to start new game
-// remove 5 rounds
-// add scores
-//change alert to result > p
+
 
 function game (){
   function playRound(playerSelection, computerSelection)
@@ -33,19 +29,8 @@ else if (playerSelection == computerSelection) alert ('draw');
 else alert ('oh you LOSEEEEE!'); /*Shortens function, also appears with an error */
 }
 
-function lose (){
-  computerScore ++ ;
-  resultText.innerHTML = playerSelection + 'loses to ' + computerSelection;
-}
 
-function win (){
-  humanScore ++;
-  resultText.innerHTML = playerSelection + 'beats ' + computerSelection;
-}
 
-function draw () {
-  resultText.innerHTML = playerSelection + 'is equal to ' + computerSelection;
-}
 
 let selectMove = prompt ("enter move");
 const playerSelection = selectMove.toLowerCase();
