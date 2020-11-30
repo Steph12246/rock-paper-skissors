@@ -16,30 +16,27 @@ function getComputerSelection (){
   const computerPlay = selections[Math.floor(Math.random()*selections.length)];
   return computerPlay;
 }
-// querySelector to icons
-// queryselector to start new game
-// remove 5 rounds
-// add scores
-//change alert to result > p
 
-function game (){
-  function playRound(playerSelection, computerSelection)
-{
-if (playerSelection == 'rock' && computerSelection == 'scissors')
-resultText.innerHTML = playerSelection + " beats " + computerSelection + " you got it";
-else if (playerSelection == 'scissors' && computerSelection == 'paper') alert ('you win');
-else if (playerSelection == 'paper' && computerSelection == 'rock') alert ('you won');
-else if (playerSelection == computerSelection) alert ('draw');
-else alert ('oh you LOSEEEEE!'); /*Shortens function, also appears with an error */
+function getPlayerSelection() {
+  rockOption.addEventListener('click', function game() {'rock'} );
+  paperOption.addEventListener('click', function game() {'paper'} );
+  scissorsOption.addEventListener('click', function game() {'scissors'} );
+}
+
+function clearScore(){
+  resetGame.addEventListener('click', computerScore_span.innerHTML='0',
+  humanScore_span.innerHTML='0');
 }
 
 function lose (){
   computerScore ++ ;
+  computerScore_span.innerHTML;
   resultText.innerHTML = playerSelection + 'loses to ' + computerSelection;
 }
 
 function win (){
   humanScore ++;
+  humanScore_span.innerHTML;
   resultText.innerHTML = playerSelection + 'beats ' + computerSelection;
 }
 
@@ -47,12 +44,23 @@ function draw () {
   resultText.innerHTML = playerSelection + 'is equal to ' + computerSelection;
 }
 
-let selectMove = prompt ("enter move");
-const playerSelection = selectMove.toLowerCase();
+const playerSelection = getPlayerSelection();
 const computerSelection = getComputerSelection();
 console.log(computerSelection);
-console.log(playRound(playerSelection, computerSelection));
+console.log(playerSelection);
+
+
+function game (){
+  function playRound(playerSelection, computerSelection)
+{
+if (playerSelection == 'rock' && computerSelection == 'scissors')
+win();
+else if (playerSelection == 'scissors' && computerSelection == 'paper')
+win();
+else if (playerSelection == 'paper' && computerSelection == 'rock')
+win();
+else if (playerSelection == computerSelection)
+draw();
+else lose(); /*Shortens function, also appears with an error */
 }
-for (var i = 0; i < 5; i++) {
-  game();
 }
